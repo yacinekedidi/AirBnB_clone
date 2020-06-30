@@ -30,6 +30,7 @@ class TestBaseModel(unittest.TestCase):
         b2 = BaseModel(id='Betty')
         s = "[{}] ({}) {}".format("BaseModel", b1.id, b1.__dict__)
         self.assertEqual(print(s), print(b1))
+        self.assertIsInstance(b1.__str__(), str)
 
         s = "[{}] ({}) {}".format("BaseModel", b2.id, b2.__dict__)
         self.assertEqual(print(s), print(b2))
@@ -43,6 +44,7 @@ class TestBaseModel(unittest.TestCase):
         d["created_at"] = b1.created_at.isoformat()
         d["updated_at"] = b1.updated_at.isoformat()
         self.assertEqual(print(d), print(b1.to_dict()))
+        self.assertIsInstance(b1.to_dict(), dict)
 
     def test_file(self):
         """ test storege """
