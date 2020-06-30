@@ -13,6 +13,7 @@ class TestBaseModel(unittest.TestCase):
     def test_args(self):
         """test without args"""
 
+        b = BaseModel()
         b1 = BaseModel()
         b2 = BaseModel(id='Betty')
         b3 = BaseModel(name="Ali")
@@ -24,6 +25,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(hasattr(b1, "updated_at"))
         self.assertFalse(hasattr(b2, "created_at"))
         self.assertFalse(b1.id == b2.id)
+        self.assertNotEqual(b.id, b1.id)
         self.assertEqual(b1.id, b4.id)
         self.assertEqual(b1.created_at, b4.created_at)
         self.assertEqual(b1.updated_at, b4.updated_at)
