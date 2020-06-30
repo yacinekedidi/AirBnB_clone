@@ -4,6 +4,7 @@
 import unittest
 from models.base_model import BaseModel
 import models
+import os
 
 
 class TestBaseModel(unittest.TestCase):
@@ -49,6 +50,7 @@ class TestBaseModel(unittest.TestCase):
     def test_file(self):
         """ test storege """
 
+        self.assertTrue(os.path.exists("file.json"))
         x = 0
         b1 = BaseModel()
         b1.save()
