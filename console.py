@@ -127,15 +127,15 @@ class HBNBCommand(cmd.Cmd):
         """ show """
 
         if line == "":
-            print("* class name missing *")
+            print("** class name missing **")
 
         else:
             l = shlex.split(line)
             if l[0] not in HBNBCommand.classes:
-                print("* class doesn't exist *")
+                print("** class doesn't exist **")
 
             elif len(l) == 1:
-                print("* instance id missing *")
+                print("** instance id missing **")
 
             else:
                 models.storage.reload()
@@ -144,7 +144,7 @@ class HBNBCommand(cmd.Cmd):
                     del d[l[0] + '.' + l[1]]
                     models.storage.save()
                 else:
-                    print("* no instance found *")
+                    print("** no instance found **")
 
     def do_all(self, line):
         """ show """
