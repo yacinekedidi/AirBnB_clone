@@ -1,10 +1,10 @@
 ![](https://github.com/yacinekedidi/AirBnB_clone/blob/master/pictures/hbnb.png?raw=true)
 # AirBnB_clone
-##Description:
+## Description:
 AirBnB_clone is a project emulating the airbnb website it's still at the early stages of developement as it only implements the back end console and the models/classes to be stored later on on a database and represented on a front end interface, 
 at its last stage it's expected to be a complete web application that clones the airbnb website
 
-##Models/Classes:
+## Models/Classes:
 |  classes | description  | attributes   |
 | ------------ | ------------ | ------------ |
 |  BaseModel  | this is the parent of all the other classes    | id, created_at, updated_at  |
@@ -17,10 +17,10 @@ at its last stage it's expected to be a complete web application that clones the
 | Review | contains review information |  place_id, user_id, text |
 | Place | contains place information | city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids |
 
-#storage:
+# storage:
 an object of the FileStorage class that reloads the FileStorage attribute __objects by seriliazing the JSON file into objects 
 
-#How to start and use:
+# How to start and use:
 |  command | description   |
 | ------------ | ------------ |
 |      ./console.py |  enter the console by typing that on the command line |
@@ -37,16 +37,16 @@ an object of the FileStorage class that reloads the FileStorage attribute __obje
 | (hbnb ) class_name.show(instance_id) | shows the instance with given id and class |
 | (hbnb ) class_name.destroy(instance_id) | deletes the instance with the given id and class |
 
-#examples:
+# examples:
 ![](https://github.com/yacinekedidi/AirBnB_clone/blob/master/pictures/example.png?raw=true)
 ![](https://github.com/yacinekedidi/AirBnB_clone/blob/master/pictures/example_advanced.png?raw=true)
 ![](https://github.com/yacinekedidi/AirBnB_clone/blob/master/pictures/example_advanced_2.png?raw=true)
 ![](https://github.com/yacinekedidi/AirBnB_clone/blob/master/pictures/example_advanced_3.png?raw=true)
 
-#Release Date
+# Release Date
 30 June 2020 
 -- Still working on other features
 
-#Authors 
+# Authors 
 Yacine Kedidi [GITHUB](https://github.com/yacinekedidi "GITHUB")
 Taïb Kefi [GITHUB](https://github.com/kefitaib "GITHUB")
