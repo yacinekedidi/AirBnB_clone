@@ -3,6 +3,7 @@
 """
 import unittest
 from models.base_model import BaseModel
+from datetime import datetime
 import models
 import os
 
@@ -19,6 +20,7 @@ class TestBaseModel(unittest.TestCase):
         b3 = BaseModel(name="Ali")
         b4 = BaseModel(**b1.to_dict())
         self.assertRaises(AttributeError)
+        self.assertTrue(isinstance(b, BaseModel))
         self.assertEqual(b2.id, "Betty")
         self.assertTrue(hasattr(b2, "id"))
         self.assertTrue(hasattr(b1, "created_at"))
@@ -29,6 +31,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(b1.id, b4.id)
         self.assertEqual(b1.created_at, b4.created_at)
         self.assertEqual(b1.updated_at, b4.updated_at)
+        self.assertTrue(isinstance(b1.created_at, datetime))
+        self.assertTrue(isinstance(b1.updated_at, datetime))
 
     def test_str(self):
         """ test print """
