@@ -6,6 +6,7 @@ import unittest
 from models.base_model import BaseModel
 import models
 
+
 class TestBaseModel(unittest.TestCase):
     """class"""
 
@@ -23,7 +24,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertFalse(hasattr(b2, "created_at"))
         self.assertFalse(b1.id == b2.id)
 
-
     def test_str(self):
         """ test print """
 
@@ -35,7 +35,6 @@ class TestBaseModel(unittest.TestCase):
         s = "[{}] ({}) {}".format("BaseModel", b2.id, b2.__dict__)
         self.assertEqual(print(s), print(b2))
 
-
     def test_dict(self):
         """ to_dict """
 
@@ -45,7 +44,6 @@ class TestBaseModel(unittest.TestCase):
         d["created_at"] = b1.created_at.isoformat()
         d["updated_at"] = b1.updated_at.isoformat()
         self.assertEqual(print(d), print(b1.to_dict()))
-
 
     def test_file(self):
         """ test storege """
@@ -63,5 +61,3 @@ class TestBaseModel(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
