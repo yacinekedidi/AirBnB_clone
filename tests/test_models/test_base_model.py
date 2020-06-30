@@ -63,7 +63,9 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(os.path.exists("file.json"))
         x = 0
         b1 = BaseModel()
+        up = b1.updated_at
         b1.save()
+        self.assertNotEqual(up, b1.updated_at)
         models.storage.reload()
         d = models.storage.all()
         for k in d.keys():
