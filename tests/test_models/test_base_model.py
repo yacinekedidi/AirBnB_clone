@@ -14,8 +14,9 @@ class TestBaseModel(unittest.TestCase):
         """test without args"""
 
         b1 = BaseModel()
-        b3 = BaseModel(name="Ali")
         b2 = BaseModel(id='Betty')
+        b3 = BaseModel(name="Ali")
+        b4 = BaseModel(**b1.to_dict())
         self.assertRaises(AttributeError)
         self.assertEqual(b2.id, "Betty")
         self.assertTrue(hasattr(b2, "id"))
@@ -23,6 +24,9 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(hasattr(b1, "updated_at"))
         self.assertFalse(hasattr(b2, "created_at"))
         self.assertFalse(b1.id == b2.id)
+        self.assertEqual(b1.id, b4.id)
+        self.assertEqual(b1.created_at, b4.created_at)
+        self.assertEqual(b1.updated_at, b4.updated_at)
 
     def test_str(self):
         """ test print """
