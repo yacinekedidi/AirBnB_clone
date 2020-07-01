@@ -80,7 +80,6 @@ class HBNBCommand(cmd.Cmd):
                 dict_arg = {}
                 kk = ""
                 b[len(b)-1] = b[len(b)-1][:-1]
-                print(b)
                 for i in b:
                     i = i.split(":")
                     dict_arg[i[0].strip()[1:-1]] = i[1].strip()[1:-1]
