@@ -84,7 +84,6 @@ class HBNBCommand(cmd.Cmd):
                 for i in b:
                     i = i.split(":")
                     dict_arg[i[0].strip()[1:-1]] = i[1].strip()[1:-1]
-                print(dict_arg)
 
                 for k, v in dict_arg.items():
                     self.do_update(x[0] + " " + a[0][:-3] + " " + k + " " + v)
