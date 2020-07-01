@@ -82,7 +82,7 @@ class HBNBCommand(cmd.Cmd):
                 b[len(b)-1] = b[len(b)-1][:-1]
                 for i in b:
                     i = i.split(":")
-                    dict_arg[i[0].strip()[1:-1]] = i[1].strip()[1:-1]
+                    dict_arg[i[0].strip()[1:-1]] = i[1].strip()
 
                 for k, v in dict_arg.items():
                     self.do_update(x[0] + " " + a[0][:-3] + " " + k + " " + v)
@@ -212,9 +212,11 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     s = l[3]
                     x = d[l[0] + '.' + l[1]]
-                    if (l[3][0] == '"' and l[3][len(l[3]) - 1] == '"') or \
-                       (l[3][0] == "'" and l[3][len(l[3]) - 1] == "'"):
-                        s = l[3][1:len(l[3]) - 1]
+                    if any(y in ".,0123456789" for y in s):
+                        if "." in s:
+                            s = float(s)
+                        else:
+                            s = int(s)
                     setattr(x, l[2], s)
                     d[l[0] + '.' + l[1]] = x
                     models.storage.save()
