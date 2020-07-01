@@ -61,6 +61,7 @@ class HBNBCommand(cmd.Cmd):
                    a[-1] == '"' or (a[0] == "'" and a[-1] == "'"):
                     a = a[1:-1]
                 return self.do_show(x[0] + " " + a)
+
         g = re.match(r"destroy(?P<id>.*)", x[1])
         if g and x[0] in HBNBCommand.classes:
             a = g.group("id")[1:-1]
@@ -69,8 +70,28 @@ class HBNBCommand(cmd.Cmd):
                    (a[0] == "'" and a[-1] == "'"):
                     a = a[1:-1]
                 return self.do_destroy(x[0] + " " + a)
-        g = re.match(r"update((.*), (.*), (.*))", x[1])
-        if g and x[0] in HBNBCommand.classes:
+
+        if re.match(r".*{.*}.*", x[1]):
+            g = re.match(r"update((?P<id>.*) (?P<dic>.*))", x[1])
+            if g and x[0] in HBNBCommand.classes:
+                a = g.group("id")[2:] + " " + g.group(3)[:-1]
+                a = a.split("{")
+                b = a[1].split(",")
+                dict_arg = {}
+                kk = ""
+                b[len(b)-1] = b[len(b)-1][:-1]
+                print(b)
+                for i in b:
+                    i = i.split(":")
+                    dict_arg[i[0].strip()[1:-1]] = i[1].strip()[1:-1]
+                print(dict_arg)
+
+                for k, v in dict_arg.items():
+                    self.do_update(x[0] + " " + a[0][:-3] + " " + k + " " + v)
+
+        else:
+            g = re.match(r"update((.*), (.*), (.*))", x[1])
+            if g and x[0] in HBNBCommand.classes:
                 a = g.group(2)[2:-1] + " " + \
                     g.group(3)[1:-1] + " " + g.group(4)[:-1]
                 return self.do_update(x[0] + " " + a)
