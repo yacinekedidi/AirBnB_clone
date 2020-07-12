@@ -164,3 +164,7 @@ div.reviews p {
 	font-size: 12px;
 	margin-left: -40px;
 }
+
+footer {
+	position: relative;
+}

@@ -94,3 +94,7 @@ font-size: 30px;
 .number_bathrooms div.pic {
 	background-image: url("../images/icon_bath.png");
 }
+
+footer {
+	position: relative;
+}
